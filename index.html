@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>Weight Tracker</h1>
+        <h3>Track your weight everyday and get an average for a designated period of time</h2>
+    </header>
+    <section id="input-section">
+        <div>
+            <input id="weight-input" type="number" placeholder="Input weight in kg" aria-label="Input weight in kg" min="0">
+            <button id="add-btn" disabled>Add/Change last</button>
+        </div>
+        <button id="instructions-btn">Instructions</button>
+    </section>
+
+    <section id="tables">
+        <div>
+            <h3>Weigh-ins</h3>
+
+            <table id="weight-table">
+                <tr>
+                    <th>Date</th>
+                    <th>Weight</th>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h3>Averages</h3>
+
+            <table id="averages-table">
+                <tr>
+                    <th>Period</th>
+                    <th>Average</th>
+                </tr>
+            </table>
+        </div>
+        
+    </section>
+
+    
+
+    <script src="index.js"></script>
+</body>
+</html>
