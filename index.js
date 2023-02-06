@@ -28,11 +28,16 @@ function sortLocalStorage(){
        }
     }
     var sortedArray = new Array();
-    sortedArray = localStorageArray.sort(function(a, b) {
-       return b.createdIn - a.createdIn
-    });
-     
-     return sortedArray;
+    if(localStorageArray) {
+        sortedArray = localStorageArray.sort(function(a, b) {
+            return b.createdIn - a.createdIn
+        });
+          
+        return sortedArray;
+    } else {
+        return [];
+    }
+    
 }
 var sortedLocalStorage = sortLocalStorage()
 
@@ -66,7 +71,6 @@ weightInput.addEventListener('input', function() {
     else {
         addBtn.disabled = false
         suffixElement.classList.remove('invisible')
-        console.log((weightInput.value).includes("."))
     }
 })
 

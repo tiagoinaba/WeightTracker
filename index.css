@@ -107,7 +107,7 @@ caption {
 .tables-div {
     display: flex;
     gap: 100px;
-    margin-top: 40px;
+    margin: 40px 0;
 }
 
 #my-input-container {
