@@ -27,9 +27,10 @@ function sortLocalStorage(){
             data: JSON.parse(localStorage.getItem(localStorage.key(i)))}
        }
     }
-     var sortedArray = localStorageArray.sort(function(a, b) {
-        return b.createdIn - a.createdIn
-     });
+    var sortedArray = new Array();
+    sortedArray = localStorageArray.sort(function(a, b) {
+       return b.createdIn - a.createdIn
+    });
      
      return sortedArray;
 }
