@@ -16,7 +16,7 @@ let todayNumbersOnly = dd + mm + yyyy
 
 function sortLocalStorage(){
     if(localStorage.length > 0){
-       var localStorageArray = new Array();
+       var localStorageArray = [];
        for (i=0;i<localStorage.length;i++){
             let tempStr = JSON.parse(localStorage.getItem(localStorage.key(i))).date
             let tempArr = tempStr.split("/")
