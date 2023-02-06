@@ -2,6 +2,7 @@ const averagesTable = document.getElementById('averages-table')
 const weightTable = document.getElementById('weight-table')
 const addBtn = document.getElementById('add-btn')
 const weightInput = document.getElementById('weight-input')
+const suffixElement = document.getElementById('my-suffix')
 let today = new Date()
 let dd = String(today.getDate()).padStart(2, '0')
 let mm = String(today.getMonth() + 1).padStart(2, '0')
@@ -55,12 +56,21 @@ for(let i=0; i < sortedLocalStorage.length; i++) {
 weighIns.reverse()
 weightTable.innerHTML += htmlString;
 
-populateAverages()
+renderAverages()
 
 weightInput.addEventListener('input', function() {
-    if(weightInput.value == '') addBtn.disabled = true
-    else addBtn.disabled = false
+    if(weightInput.value === ''){ 
+        addBtn.disabled = true
+        suffixElement.classList.add('invisible')
+    }
+    else {
+        addBtn.disabled = false
+        suffixElement.classList.remove('invisible')
+        console.log((weightInput.value).includes("."))
+    }
 })
+
+weightInput.addEventListener('input', updateSuffix)
 
 weightInput.onkeydown = function(e) {
     if(!((e.keyCode > 95 && e.keyCode < 106)
@@ -68,6 +78,11 @@ weightInput.onkeydown = function(e) {
     || e.keyCode == 8 || e.keyCode == 190)) {
         return false;
     }
+
+    if(e.keyCode == 190 && weightInput.value.includes(".")) {
+        return false;
+    }
+
 }
 
 
@@ -94,9 +109,14 @@ addBtn.addEventListener('click', function() {
             weightTable.children[0].after(tempTr)
                 
         }
-        populateAverages()
+        renderAverages()
     }
 })
+
+function updateSuffix() {
+    const width = getTextWidth(weightInput.value, '40px "Montserrat", sans-serif')
+    suffixElement.style.left = width + 'px';
+}
 
 function calculateAverage(arr) {
     let sum = 0
@@ -108,7 +128,7 @@ function calculateAverage(arr) {
     return (sum/arr.length).toFixed(2)
 }
 
-function populateAverages() {
+function renderAverages() {
     let tempHTML = ""
     let tempArr = []
     let averageWeight = 0
@@ -134,7 +154,6 @@ function populateAverages() {
         let count = 0
         for(let i=0; i < runTimes; i++) {
             tempArr = weighIns.slice(count, count+7)
-            console.log(tempArr)
             averageWeight = calculateAverage(tempArr)
             timeFrame = tempArr[0].date + " - " + tempArr[6].date
             tempHTML = `<tr>
@@ -174,4 +193,12 @@ function resetAveragesTable() {
     <th>Period</th>
     <th>Average</th>
     </tr>` 
+}
+
+function getTextWidth(text, font) {
+    var canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
+    var context = canvas.getContext("2d");
+    context.font = font;
+    var metrics = context.measureText(text);
+    return metrics.width;
 }

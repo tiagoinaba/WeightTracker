@@ -2,42 +2,50 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Weight Tracker</h1>
-        <h3>Track your weight everyday and get an average for a designated period of time</h2>
+        <div class="header" id="header">
+            <h1>Weight Tracker</h1>
+            <h3>Track your weight everyday and get an average for a designated period of time</h2>
+        </div>
     </header>
     <section id="input-section">
-        <div>
-            <input id="weight-input" type="number" placeholder="Input weight in kg" aria-label="Input weight in kg" min="0">
-            <button id="add-btn" disabled>Add/Change last</button>
+        <div id="my-input-container">
+            <input id="weight-input" type="text" placeholder="Input weight in kg" aria-label="Input weight in kg" min="0">
+            <span id="my-suffix" class="invisible">kg</span>
+            <button class="add-btn" id="add-btn" disabled>Add/Change last</button>
         </div>
-        <button id="instructions-btn">Instructions</button>
     </section>
 
-    <section id="tables">
-        <div>
-            <h3>Weigh-ins</h3>
-
-            <table id="weight-table">
-                <tr>
-                    <th>Date</th>
-                    <th>Weight</th>
-                </tr>
-            </table>
+    <section>
+        <div class="tables-div">
+            <div>
+                <h3>Weigh-ins</h3>
+    
+                <table id="weight-table">
+                    <tr>
+                        <th>Date</th>
+                        <th>Weight</th>
+                    </tr>
+                </table>
+            </div>
+    
+            <div>
+                <h3>Averages</h3>
+    
+                <table id="averages-table">
+                    <tr>
+                        <th>Period</th>
+                        <th>Average</th>
+                    </tr>
+                </table>
+            </div>
         </div>
-
-        <div>
-            <h3>Averages</h3>
-
-            <table id="averages-table">
-                <tr>
-                    <th>Period</th>
-                    <th>Average</th>
-                </tr>
-            </table>
-        </div>
+        
         
     </section>
 
