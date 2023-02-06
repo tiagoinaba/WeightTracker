@@ -33,8 +33,7 @@ function sortLocalStorage(){
      
      return sortedArray;
 }
-
-const sortedLocalStorage = sortLocalStorage()
+var sortedLocalStorage = sortLocalStorage()
 
 
 
