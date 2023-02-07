@@ -16,9 +16,15 @@
     <section id="input-section">
         <div id="my-input-container">
             <input id="weight-input" type="text" placeholder="Input weight in kg" aria-label="Input weight in kg" min="0">
-            <span id="my-suffix" class="invisible">kg</span>
+            <span id="my-suffix" class="invisible noselect">kg</span>
             <button class="add-btn" id="add-btn" disabled>Add/Change last</button>
         </div>
+        <label class="toggle">
+            <input id="checkbox" type="checkbox" checked>
+            <span class="slider"></span>
+          
+            <span class="labels" data-on="kg" data-off="lbs"></span>
+        </label>
     </section>
 
     <section>
