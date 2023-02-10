@@ -157,7 +157,6 @@ addBtn.addEventListener('click', function() {
                 weightTable.children[0].after(tempTr)
                     
             }
-            renderAverages()
         } else {
             let data = {
                 date: today,
@@ -179,9 +178,8 @@ addBtn.addEventListener('click', function() {
                 weightTable.children[0].after(tempTr)
                     
             }
-            renderAverages()
         }
-        
+        renderAverages()
     }
     weightInput.value = ''
     suffixElement.classList.add('invisible')
@@ -259,8 +257,10 @@ function renderAverages() {
         } else {
             let runTimes = parseInt(weighIns.length / 7)
             let remainder = weighIns.length % 7
+            
 
-            tempArr = weighIns.slice((7 * runTimes), ((7 * runTimes) + remainder))
+            tempArr = (weighIns.slice((7 * runTimes), ((7 * runTimes) + remainder))).reverse()
+            console.log(tempArr)
             averageWeight = calculateAverage(tempArr)
             timeFrame = tempArr[0].date + " - " + tempArr[remainder - 1].date
             tempHTML = `<tr>
@@ -312,7 +312,7 @@ function renderAverages() {
             let runTimes = parseInt(weighIns.length / 7)
             let remainder = weighIns.length % 7
 
-            tempArr = weighIns.slice((7 * runTimes), ((7 * runTimes) + remainder))
+            tempArr = (weighIns.slice((7 * runTimes), ((7 * runTimes) + remainder))).reverse()
             averageWeight = calculateAverage(tempArr)
             timeFrame = tempArr[0].date + " - " + tempArr[remainder - 1].date
             tempHTML = `<tr>
