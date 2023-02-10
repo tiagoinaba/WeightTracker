@@ -147,13 +147,13 @@ addBtn.addEventListener('click', function() {
         
             if(document.getElementById(todayNumbersOnly)) {
                 document.getElementById(`${todayNumbersOnly}-weight`).innerText = `${data.weightInKg}kg`
-                weighIns.pop()
-                weighIns.push(data)
+                weighIns.shift()
+                weighIns.unshift(data)
             } else {
                 let tempTr = document.createElement('tr')
                 tempTr.innerHTML += `<td id="${todayNumbersOnly}">${JSON.parse(localStorage.getItem(todayNumbersOnly)).date}</td>
                 <td id="${todayNumbersOnly}-weight">${JSON.parse(localStorage.getItem(todayNumbersOnly)).weightInKg}kg</td>`
-                weighIns.push(data)
+                weighIns.unshift(data)
                 weightTable.children[0].after(tempTr)
                     
             }
@@ -168,13 +168,13 @@ addBtn.addEventListener('click', function() {
         
             if(document.getElementById(todayNumbersOnly)) {
                 document.getElementById(`${todayNumbersOnly}-weight`).innerText = `${data.weightInLbs}lbs`
-                weighIns.pop()
-                weighIns.push(data)
+                weighIns.shift()
+                weighIns.unshift(data)
             } else {
                 let tempTr = document.createElement('tr')
                 tempTr.innerHTML += `<td id="${todayNumbersOnly}">${JSON.parse(localStorage.getItem(todayNumbersOnly)).date}</td>
                 <td id="${todayNumbersOnly}-weight">${JSON.parse(localStorage.getItem(todayNumbersOnly)).weightInLbs}lbs</td>`
-                weighIns.push(data)
+                weighIns.unshift(data)
                 weightTable.children[0].after(tempTr)
                     
             }
